@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.muf.mymuf.mobilesurvey.fragment.aplikasi.StrukturKreditMainFragment">
+
+    <LinearLayout
+        android:id="@+id/btn_slider_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/btn_struktur_kredit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/button_alt_2"
+                    android:text="Struktur Kredit" />
+
+                <Button
+                    android:id="@+id/btn_informasi_biaya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/button_alt_2"
+                    android:text="Informasi Biaya" />
+
+                <Button
+                    android:id="@+id/btn_asuransi_kerugian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/button_alt_2"
+                    android:text="Asuransi Kerugian" />
+
+                <Button
+                    android:id="@+id/btn_perluasan_jaminan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/button_alt_2"
+                    android:text="Perluasan Jaminan" />
+
+                <Button
+                    android:id="@+id/btn_asuransi_tambahan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/button_alt_2"
+                    android:text="Asuransi Tambahan" />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btn_slider_container">
+
+        <FrameLayout
+            android:id="@+id/frame_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_menu_customer"
+        android:enabled="true"
+        android:icon="@drawable/ic_customer"
+        android:title="CUSTOMER"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_menu_aplikasi"
+        android:enabled="true"
+        android:icon="@drawable/ic_aplikasi"
+        android:title="APLIKASI"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_menu_survey"
+        android:enabled="true"
+        android:icon="@drawable/ic_survey"
+        android:title="SURVEY"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_menu_dokumen"
+        android:enabled="true"
+        android:icon="@drawable/ic_dokumen"
+        android:title="DOKUMEN"
+        app:showAsAction="ifRoom" />
+</menu>

@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.muf.mymuf.mobilesurvey.fragment.aplikasi.PerluasanJaminanFragment">
+
+    <LinearLayout
+        android:id="@+id/perluasan_jaminan_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <CheckBox
+        android:text="SRCC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/perluasan_jaminan_srcc" >
+    </CheckBox>
+
+        <CheckBox
+            android:text="TS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/perluasan_jaminan_ts" >
+        </CheckBox>
+
+        <CheckBox
+            android:text="FLH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/perluasan_jaminan_flh" >
+        </CheckBox>
+
+        <CheckBox
+            android:text="EQTS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/perluasan_jaminan_eqts" >
+        </CheckBox>
+
+        <CheckBox
+            android:text="TJH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/perluasan_jaminan_tjh" >
+        </CheckBox>
+
+        <CheckBox
+            android:text="PA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/perluasan_jaminan_pa" >
+        </CheckBox>
+
+        <CheckBox
+            android:text="DRIVER"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/perluasan_jaminan_driver" >
+        </CheckBox>
+
+        <CheckBox
+            android:text="Limit Of Liability*"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/perluasan_jaminan_LimitOfLiability">
+        </CheckBox>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/perluasan_jaminan_LimitOfLiability_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/input_perluasan_jaminan_LimitOfLiability_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:inputType="number"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+</RelativeLayout>

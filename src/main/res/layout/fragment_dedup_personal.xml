@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.muf.mymuf.mobilesurvey.fragment.DedupPersonalFragment">
+
+    <RelativeLayout
+        android:id="@+id/container_1"
+        android:layout_above="@+id/container_2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scroll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            tools:context="com.muf.mymuf.mobilesurvey.fragment.DedupPersonalFragment">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                tools:context="com.muf.mymuf.mobilesurvey.fragment.DedupPersonalFragment">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textInputLayout_edtxtNoKTP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/edtxtNoKTP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapCharacters"
+                        android:hint="Nomor KTP"
+                        android:layout_marginLeft="8dp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textInputLayout_edtxtNamaNasabah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_below="@+id/textInputLayout_edtxtNoKTP">
+
+                    <EditText
+                        android:id="@+id/edtxtNamaNasabah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapCharacters"
+                        android:hint="Nama"
+                        android:layout_marginLeft="8dp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/txt_keterangan_nama"
+                    android:layout_below="@+id/textInputLayout_edtxtNamaNasabah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="-12dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray"
+                    android:text="Sesuai KTP"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textInputLayout_edtxtTglLahir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_below="@+id/textInputLayout_edtxtNamaNasabah">
+
+                    <EditText
+                        android:id="@+id/edtxtTglLahir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapCharacters"
+                        android:hint="Tanggal Lahir"
+                        android:focusable="false"
+                        android:layout_marginLeft="8dp"
+                        android:drawableRight="@drawable/ic_calendar"
+                        android:drawableEnd="@drawable/ic_calendar" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textInputLayout_edtxtNamaIbu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_below="@+id/textInputLayout_edtxtTglLahir">
+
+                    <EditText
+                        android:id="@+id/edtxtNamaIbu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapCharacters"
+                        android:hint="Nama Gadis Ibu Kandung"
+                        android:layout_marginLeft="8dp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/objek"
+                    android:layout_below="@+id/textInputLayout_edtxtNamaIbu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/input_objek"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:inputType="textCapCharacters"
+                        android:hint="Objek"
+                        android:drawableRight="@drawable/ic_arrow"
+                        android:drawableEnd="@drawable/ic_arrow"
+                        android:layout_marginLeft="8dp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/merek"
+                    android:layout_below="@+id/objek"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/input_merek"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:inputType="textCapCharacters"
+                        android:hint="Merek"
+                        android:drawableRight="@drawable/ic_arrow"
+                        android:drawableEnd="@drawable/ic_arrow"
+                        android:layout_marginLeft="8dp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/model"
+                    android:layout_below="@+id/merek"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/input_model"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:inputType="textCapCharacters"
+                        android:hint="Model"
+                        android:drawableRight="@drawable/ic_arrow"
+                        android:drawableEnd="@drawable/ic_arrow"
+                        android:layout_marginLeft="8dp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/channel"
+                    android:layout_below="@+id/model"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/input_channel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:inputType="textCapCharacters"
+                        android:hint="Sales Channel"
+                        android:drawableRight="@drawable/ic_arrow"
+                        android:drawableEnd="@drawable/ic_arrow"
+                        android:layout_marginLeft="8dp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/container_2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btn_dedup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_no_rad_alt"
+            android:text="DETECTION DUPLICATION" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

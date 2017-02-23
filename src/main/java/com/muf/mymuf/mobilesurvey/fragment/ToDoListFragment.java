@@ -16,7 +16,7 @@ import android.widget.EditText;
 import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment;
 import com.codetroopers.betterpickers.calendardatepicker.MonthAdapter;
 import com.muf.mymuf.mobilesurvey.R;
-import com.muf.mymuf.mobilesurvey.activity.ListDataEntryActivity;
+import com.muf.mymuf.mobilesurvey.activity.ListToDoListActivity;
 import com.muf.mymuf.mobilesurvey.util.Configs;
 import com.muf.mymuf.mobilesurvey.util.Dialogs;
 import com.muf.mymuf.mobilesurvey.util.SessionManager;
@@ -207,8 +207,8 @@ public class ToDoListFragment extends Fragment {
         String data7 = "";
 
         String branchCode = "0201";
-        String tglAwal = "01-FEB-2017";
-        String tglAkhir = "06-FEB-2017";
+        String tglAwal = "01-JAN-2017";
+        String tglAkhir = "22-FEB-2017";
         String salesChannel = "";
         String outletChannelCode = "";
         String supplierCode = "";
@@ -282,7 +282,7 @@ public class ToDoListFragment extends Fragment {
                     try {
                         JSONArray jsonArray = new JSONArray(result);
 
-                        Intent i = new Intent(getActivity(), ListDataEntryActivity.class);
+                        Intent i = new Intent(getActivity(), ListToDoListActivity.class);
                         i.putExtra("JSON_RESPONSE", jsonArray.toString());
                         startActivity(i);
 

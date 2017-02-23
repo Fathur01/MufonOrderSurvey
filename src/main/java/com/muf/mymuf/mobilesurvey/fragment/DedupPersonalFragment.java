@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -17,6 +18,7 @@ import android.os.Parcelable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +31,8 @@ import com.codetroopers.betterpickers.calendardatepicker.MonthAdapter;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.listener.single.DialogOnDeniedPermissionListener;
 import com.karumi.dexter.listener.single.PermissionListener;
+import com.muf.mymuf.mobilesurvey.activity.CustomerDetailActivity;
+import com.muf.mymuf.mobilesurvey.activity.DataEntryActivity;
 import com.muf.mymuf.mobilesurvey.activity.ListDedupActivity;
 import com.muf.mymuf.mobilesurvey.R;
 import com.muf.mymuf.mobilesurvey.activity.SearchResultActivity;
@@ -93,6 +97,7 @@ public class DedupPersonalFragment extends Fragment implements LocationListener 
     private final String URL_GET_OBJEK_BRAND = Configs.URL_SERVICE + "m=p&srv=SRVMDM&rt=searchObjectBrand";
     private final String URL_GET_OBJEK_MODEL = Configs.URL_SERVICE + "m=p&srv=SRVMDM&rt=getModelObject";
     private final String URL_GET_CHANNEL = Configs.URL_SERVICE + "m=g&srv=SRVMDM&rt=listApplicantOrder";
+    private final String URL_GET_ORDER_ID = Configs.URL_SERVICE + "m=g&srv=SRVAAM&rt=getApplicantOrderId";
 
     private final Integer REQUEST_CODE_GET_OBJEK = 1001;
     private final Integer REQUEST_CODE_GET_OBJEK_BRAND = 1002;
@@ -394,34 +399,59 @@ public class DedupPersonalFragment extends Fragment implements LocationListener 
                 Log.d("debug_response", result);
 
                 if(response.code() == 200) {
-                    try {
-                        JSONObject json = new JSONObject(result);
-                        Integer row = json.getInt("DEDUP_RESULT_ROW");
-
-                        if(row > 0) {
-                            Map<String, Object> params_dedup = new HashMap<>();
-                            params_dedup.put("user_id", strUser);
-                            params_dedup.put("order_id", strOrder);
-                            params_dedup.put("no_ktp", strKtp);
-                            params_dedup.put("nama_nasabah", strNama);
-                            params_dedup.put("tgl_lahir", strTgl);
-                            params_dedup.put("nama_ibu", strNamaIbu);
-                            params_dedup.put("latitude", latitude);
-                            params_dedup.put("longitude", longitude);
-                            params_dedup.put("current_time", currentTime);
-
-                            saveDedup(params_dedup, json.toString());
+                    if(result.equals("{\"status\":\"Statement is closed\"}")) {
+                        if(progressDialog != null && progressDialog.isShowing()) {
+                            progressDialog.dismiss();
                         }
-                        else {
-                            Dialogs.showDialog(mHandler, getActivity(), "Info", "Tidak Ada Data", false);
-                            if(progressDialog != null && progressDialog.isShowing()) {
-                                progressDialog.dismiss();
+                        Dialogs.showDialog(mHandler, getActivity(), "Info", "Silahkan Coba Lagi", false);
+                    }
+                    else {
+                        try {
+                            JSONObject json = new JSONObject(result);
+                            Integer row = json.getInt("DEDUP_RESULT_ROW");
+
+                            if(row > 0) {
+                                Map<String, Object> params_dedup = new HashMap<>();
+                                params_dedup.put("user_id", strUser);
+                                params_dedup.put("order_id", strOrder);
+                                params_dedup.put("no_ktp", strKtp);
+                                params_dedup.put("nama_nasabah", strNama);
+                                params_dedup.put("tgl_lahir", strTgl);
+                                params_dedup.put("nama_ibu", strNamaIbu);
+                                params_dedup.put("latitude", latitude);
+                                params_dedup.put("longitude", longitude);
+                                params_dedup.put("current_time", currentTime);
+
+                                saveDedup(params_dedup, json.toString());
                             }
-                        }
+                            else {
+                                mHandler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                                        builder.setTitle("Info");
+                                        builder.setMessage("Tidak Ada Data\nMenuju Data Entry");
+                                        builder.setIcon(R.mipmap.ic_launcher);
+                                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                getOrderId(URL_GET_ORDER_ID);
+                                            }
+                                        });
+                                        AlertDialog alert = builder.create();
+                                        alert.show();
+                                    }
+                                });
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Log.d("debug_exception", e.getMessage());
+                                if(progressDialog != null && progressDialog.isShowing()) {
+                                    progressDialog.dismiss();
+                                }
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Log.d("debug_exception", e.getMessage());
+                        }
                     }
                 }
                 else {
@@ -872,7 +902,7 @@ public class DedupPersonalFragment extends Fragment implements LocationListener 
 
     /**
      *
-     * get Objek dari service
+     * get Sales Channel dari service
      *
      **/
     public void getChannel(String URL) {
@@ -936,6 +966,72 @@ public class DedupPersonalFragment extends Fragment implements LocationListener 
                     intent.putExtra("SEARCH_KEY", "Sales Channel");
                     intent.putExtra("SEARCH_REQUEST_CODE", REQUEST_CODE_GET_CHANNEL);
                     startActivityForResult(intent, REQUEST_CODE_GET_CHANNEL);
+                }
+                else {
+                    if(progressDialog != null && progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+                    Dialogs.showDialog(mHandler, getActivity(), "Info", "Silahkan Coba Lagi", false);
+                }
+            }
+        });
+    }
+
+    /**
+     *
+     * get Order ID dari service & go to Data Entry
+     *
+     **/
+    public void getOrderId(String URL){
+        progressDialog = new ProgressDialog(getActivity(), R.style.AppTheme_Dark_Dialog);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
+
+        mHandler = new Handler(Looper.getMainLooper());
+
+        OkHttpClient client = new OkHttpClient();
+
+        Request request = new Request.Builder()
+                .url(URL)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.d("debug_failure", e.getMessage());
+
+                final String msg = e.getMessage();
+                if(progressDialog != null && progressDialog.isShowing()) {
+                    progressDialog.dismiss();
+                }
+                Dialogs.showDialog(mHandler, getActivity(), "Info", msg, false);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String result = response.body().string();
+                Log.d("debug_response", result);
+
+                if(response.code() == 200) {
+
+                    if(progressDialog != null && progressDialog.isShowing()) {
+                        progressDialog.dismiss();
+                    }
+
+                    try {
+                        JSONObject jObject = new JSONObject(result);
+                        String orderId = jObject.get("seq").toString().replace("[", "").replace("]", "");
+
+                        Intent intent = new Intent(getActivity(), DataEntryActivity.class);
+                        intent.putExtra("ORDER_ID", orderId);
+                        startActivity(intent);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
                 }
                 else {
                     if(progressDialog != null && progressDialog.isShowing()) {

@@ -95,29 +95,6 @@ public class ObjekPembiayaanActivity extends AppCompatActivity {
 
                 return true;
 
-            case R.id.action_logout:
-                AlertDialog.Builder logoutWarningBuilder = new AlertDialog.Builder(ObjekPembiayaanActivity.this);
-                logoutWarningBuilder.setTitle("Konfirmasi");
-                logoutWarningBuilder.setMessage("Apakah anda yakin ingin Log Out ?");
-                logoutWarningBuilder.setIcon(R.mipmap.ic_launcher);
-                logoutWarningBuilder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        SessionManager session = new SessionManager(getApplicationContext());
-                        session.logoutUser();
-                        finish();
-                    }
-                });
-                logoutWarningBuilder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Cancel
-                    }
-                });
-                AlertDialog logoutWarningAlert = logoutWarningBuilder.create();
-                logoutWarningAlert.show();
-                return true;
-
             default:
                 return super.onOptionsItemSelected(item);
 

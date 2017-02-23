@@ -11,6 +11,8 @@ import com.muf.mymuf.mobilesurvey.R;
 import com.muf.mymuf.mobilesurvey.list.ToDoList;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -100,5 +102,38 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.MyViewHolder> 
         }
 
         notifyDataSetChanged();
+    }
+
+    public void sort(String sortKey) {
+
+        switch (sortKey) {
+            case "Nama A-Z" : // ASC
+                Collections.sort(toDoList, new Comparator<ToDoList>() {
+                    @Override
+                    public int compare(ToDoList x, ToDoList y) {
+                        return x.getCustomerName().compareTo(y.getCustomerName());
+                    }
+                });
+
+                notifyDataSetChanged();
+                break;
+            case "Nama Z-A" : // DESC
+                Collections.sort(toDoList, new Comparator<ToDoList>() {
+                    @Override
+                    public int compare(ToDoList x, ToDoList y) {
+                        return y.getCustomerName().compareTo(x.getCustomerName());
+                    }
+                });
+
+                notifyDataSetChanged();
+                break;
+            case "Dealer A-Z" :
+                break;
+            case "Dealer Z-A" :
+                break;
+            default:
+                // DO NOTHING
+                break;
+        }
     }
 }

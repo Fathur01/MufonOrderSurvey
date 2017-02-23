@@ -1,5 +1,6 @@
 package com.muf.mymuf.mobilesurvey.adapter;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -25,6 +26,7 @@ public class DedupAdapter extends RecyclerView.Adapter<DedupAdapter.MyViewHolder
 
     private List<DedupList> dedupList;
     private ArrayList<DedupList> arrayDedupList;
+    private Activity activity;
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -87,18 +89,20 @@ public class DedupAdapter extends RecyclerView.Adapter<DedupAdapter.MyViewHolder
             Integer position = getAdapterPosition();
             DedupList resultList = dedupList.get(position);
 
-            Intent i = new Intent(view.getContext(), CustomerDetailActivity.class);
-            i.putExtra("ROW_ID", resultList.getRowID());
-            i.putExtra("STATUS_CODE", resultList.getStatusCode());
-            i.putExtra("INSERTED_ID", resultList.getInsertedId());
-            view.getContext().startActivity(i);
+            Intent intent = new Intent(view.getContext(), CustomerDetailActivity.class);
+            intent.putExtra("ROW_ID", resultList.getRowID());
+            intent.putExtra("STATUS_CODE", resultList.getStatusCode());
+            intent.putExtra("INSERTED_ID", resultList.getInsertedId());
+            view.getContext().startActivity(intent);
+            activity.finish();
         }
     }
 
-    public DedupAdapter(List<DedupList> searchResultList) {
+    public DedupAdapter(List<DedupList> searchResultList, Activity activity) {
         this.dedupList = searchResultList;
         this.arrayDedupList = new ArrayList<DedupList>();
         this.arrayDedupList.addAll(searchResultList);
+        this.activity = activity;
     }
 
     public void filter(String query) {

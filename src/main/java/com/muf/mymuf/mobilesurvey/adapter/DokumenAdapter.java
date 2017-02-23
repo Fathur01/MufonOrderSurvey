@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,10 @@ public class DokumenAdapter extends RecyclerView.Adapter<DokumenAdapter.MyViewHo
     public void onBindViewHolder(DokumenAdapter.MyViewHolder holder, int position) {
         DokumenList resultList = dokumenList.get(position);
         holder.name.setText(resultList.getName());
+
+        if(resultList.getIsOther()) {
+            holder.pilihDokumenContainer.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -51,12 +56,13 @@ public class DokumenAdapter extends RecyclerView.Adapter<DokumenAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView name;
+        private LinearLayout pilihDokumenContainer;
         private Button selectDokumen;
-        private Button saveDokumen;
 
         public MyViewHolder(View view) {
             super(view);
             name = (TextView) view.findViewById(R.id.txt_nama_dokumen);
+            pilihDokumenContainer = (LinearLayout) view.findViewById(R.id.layout7);
 
             selectDokumen = (Button) view.findViewById(R.id.btn_select_document);
             selectDokumen.setOnClickListener(new View.OnClickListener() {
@@ -66,23 +72,7 @@ public class DokumenAdapter extends RecyclerView.Adapter<DokumenAdapter.MyViewHo
                     DokumenList resultList = dokumenList.get(position);
                     Toast.makeText(view.getContext(), "SELECTED " + resultList.getName(), Toast.LENGTH_SHORT).show();
 
-                    /*ImagePicker.setMinQuality(600, 600);
-                    ImagePicker.pickImage(dokumenFragment, "wawa");
-
-                    dokumenFragment.onActivityResult(ImagePicker.PICK_IMAGE_REQUEST_CODE, position,
-                            ImagePicker.getPickImageIntent(dokumenFragment.getContext(), "wawa"));*/
-
                     dokumenFragment.getImage(resultList.getName());
-                }
-            });
-
-            saveDokumen = (Button) view.findViewById(R.id.btn_save_dokumen);
-            saveDokumen.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Integer position = getAdapterPosition();
-                    DokumenList resultList = dokumenList.get(position);
-                    Toast.makeText(view.getContext(), "SAVED " + resultList.getName(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

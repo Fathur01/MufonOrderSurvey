@@ -41,7 +41,7 @@ public class ReasonToCancelActivity extends AppCompatActivity {
     private Handler mHandler;
     private ProgressDialog progressDialog;
 
-    private final String URL_GET_REASON = Configs.URL_SERVICE + "m=p&srv=SRVAAM&rt=listParamSubResultByResult";
+    private final String URL_GET_REASON = Configs.URL_SERVICE_2 + "get_cancel_reasons.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,6 @@ public class ReasonToCancelActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Reason to Cancel");
 
         final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radio_group);
@@ -71,8 +70,11 @@ public class ReasonToCancelActivity extends AppCompatActivity {
                 else {
                     RadioButton r = (RadioButton) radioGroup.getChildAt(idx);
                     String selectedText = r.getText().toString();
-                    String selectedId = "M0" + String.valueOf(r.getId());
-                    Toast.makeText(ReasonToCancelActivity.this, selectedId, Toast.LENGTH_SHORT).show();
+                    String selectedId = String.valueOf(r.getId());
+                    Toast.makeText(ReasonToCancelActivity.this, selectedId + " - " + selectedText, Toast.LENGTH_SHORT).show();
+
+                    // TODO SAVE CANCEL REASON DATA, THEN FINNISH
+                    finish();
                 }
             }
         });
@@ -97,6 +99,11 @@ public class ReasonToCancelActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
+
     public void getReason(final Activity activity, final RadioGroup rGroup) {
 
         progressDialog = new ProgressDialog(ReasonToCancelActivity.this, R.style.AppTheme_Dark_Dialog);
@@ -108,19 +115,10 @@ public class ReasonToCancelActivity extends AppCompatActivity {
 
         mHandler = new Handler(Looper.getMainLooper());
 
-        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("appr_code", "REJC");
-        params.put("appr_result_code", "M");
-
-        JSONObject parameter = new JSONObject(params);
         OkHttpClient client = new OkHttpClient();
 
-        RequestBody body = RequestBody.create(JSON, parameter.toString());
         Request request = new Request.Builder()
                 .url(URL_GET_REASON)
-                .post(body)
-                .addHeader("content-type", "application/json; charset=utf-8")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -146,11 +144,12 @@ public class ReasonToCancelActivity extends AppCompatActivity {
                         for(int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                            String reasonCode = jsonObject.getString("appr_subresult_code");
-                            String reasonDesc = jsonObject.getString("appr_subresult_desc");
+                            String reasonCode = jsonObject.getString("reason_code");
+                            String reasonDesc = jsonObject.getString("reason_description");
+                            String reasonIsActive = jsonObject.getString("is_active");
 
                             final RadioButton radioButton = new RadioButton(activity);
-                            radioButton.setId(i + 1);
+                            radioButton.setId(Integer.parseInt(reasonCode));
                             radioButton.setText(reasonDesc);
 
                             mHandler.post(new Runnable() {

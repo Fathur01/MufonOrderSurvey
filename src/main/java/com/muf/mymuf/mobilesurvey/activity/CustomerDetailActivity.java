@@ -73,7 +73,6 @@ public class CustomerDetailActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Detail Customer Perorangan");
 
         String rowID = getIntent().getStringExtra("ROW_ID");
@@ -138,6 +137,11 @@ public class CustomerDetailActivity extends AppCompatActivity {
         }
 
         super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 
     /**
@@ -399,5 +403,6 @@ public class CustomerDetailActivity extends AppCompatActivity {
         Intent intent = new Intent(CustomerDetailActivity.this, DataEntryActivity.class);
         intent.putExtra("ORDER_ID", orderId);
         startActivity(intent);
+        finish();
     }
 }

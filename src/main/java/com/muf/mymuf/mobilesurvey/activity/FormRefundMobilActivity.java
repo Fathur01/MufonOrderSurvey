@@ -1,5 +1,6 @@
 package com.muf.mymuf.mobilesurvey.activity;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -36,7 +37,8 @@ public class FormRefundMobilActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.action_finish:
-                Toast.makeText(FormRefundMobilActivity.this, "OKE", Toast.LENGTH_LONG).show();
+                setResult(Activity.RESULT_OK);
+                finish();
                 return true;
 
             default:

@@ -23,7 +23,6 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.muf.mymuf.mobilesurvey.R;
-import com.muf.mymuf.mobilesurvey.fragment.DedupPersonalFragment;
 import com.muf.mymuf.mobilesurvey.fragment.customer.IdentitasFragment;
 import com.muf.mymuf.mobilesurvey.fragment.customer.PendapatanFragment;
 import com.muf.mymuf.mobilesurvey.fragment.customer.PekerjaanFragment;
@@ -32,7 +31,6 @@ import com.muf.mymuf.mobilesurvey.fragment.aplikasi.AplikasiFragment;
 import com.muf.mymuf.mobilesurvey.fragment.dokumen.DokumenFragment;
 import com.muf.mymuf.mobilesurvey.fragment.survey.HasilSurveyFragment;
 import com.muf.mymuf.mobilesurvey.fragment.survey.DataKepemilikanFragment;
-import com.muf.mymuf.mobilesurvey.util.SessionManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +52,6 @@ public class DataEntryActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar_nav);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Customer Perorangan");
 
         viewPager1 = (ViewPager) findViewById(R.id.view_pager_1);
@@ -174,33 +171,34 @@ public class DataEntryActivity extends AppCompatActivity {
 
                 return true;
 
-            case R.id.action_logout:
-                AlertDialog.Builder logoutWarningBuilder = new AlertDialog.Builder(DataEntryActivity.this);
-                logoutWarningBuilder.setTitle("Konfirmasi");
-                logoutWarningBuilder.setMessage("Apakah anda yakin ingin Log Out ?");
-                logoutWarningBuilder.setIcon(R.mipmap.ic_launcher);
-                logoutWarningBuilder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        SessionManager session = new SessionManager(getApplicationContext());
-                        session.logoutUser();
-                        finish();
-                    }
-                });
-                logoutWarningBuilder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Cancel
-                    }
-                });
-                AlertDialog logoutWarningAlert = logoutWarningBuilder.create();
-                logoutWarningAlert.show();
-                return true;
-
             default:
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(DataEntryActivity.this);
+        builder.setTitle("Warning");
+        builder.setMessage("Data anda belum tersimpan.\nApakah anda yakin untuk keluar ?");
+        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // CLOSE
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+
     }
 
     public void setupViewPager(ViewPager viewPager, Integer itemId) {

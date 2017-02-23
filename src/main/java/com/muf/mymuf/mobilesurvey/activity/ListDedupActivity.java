@@ -12,6 +12,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.muf.mymuf.mobilesurvey.R;
@@ -33,7 +34,14 @@ public class ListDedupActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
-    TextView num;
+    private Button btnInputData;
+    private Button btnCancel;
+    private EditText filter;
+    private RelativeLayout searchContainer;
+    private RelativeLayout numContainer;
+    private RelativeLayout listContainer;
+
+    private TextView num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +51,6 @@ public class ListDedupActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Detection Duplication");
         getSupportActionBar().setSubtitle("PER-PERSONAL");
 
@@ -52,7 +59,14 @@ public class ListDedupActivity extends AppCompatActivity {
 
         final Integer insertedId = getIntent().getExtras().getInt("INSERTED_ID");
 
+        btnInputData = (Button) findViewById(R.id.btn_ide);
+        btnCancel = (Button) findViewById(R.id.btn_cancel);
+        filter = (EditText) findViewById(R.id.filter);
         num = (TextView) findViewById(R.id.result_num);
+
+        searchContainer = (RelativeLayout) findViewById(R.id.search_container);
+        numContainer = (RelativeLayout) findViewById(R.id.result_num_container );
+        listContainer = (RelativeLayout) findViewById(R.id.recycler_container);
 
         try {
             JSONObject jsonObject = new JSONObject(getIntent().getStringExtra("JSON_RESPONSE"));
@@ -79,20 +93,29 @@ public class ListDedupActivity extends AppCompatActivity {
                             noIdentitas, alamatDomisili, status, rowID, statusCode, insertedId));
                 }
 
-                mAdapter = new DedupAdapter(resultList);
+                if(jsonArray.length() == 1 && jsonArray.getJSONObject(0).getInt("CUST_STATUS") == 1) {
+                    // DATA 1 DAN BLACK LIST
+                    btnInputData.setVisibility(View.GONE);
+                    numContainer.setVisibility(View.GONE);
+                    searchContainer.setVisibility(View.GONE);
+                    listContainer.setVisibility(View.GONE);
+                    btnCancel.setText("EXIT");
+                }
+
+                mAdapter = new DedupAdapter(resultList, ListDedupActivity.this);
 
                 mAdapter.notifyDataSetChanged();
 
                 recyclerView.setLayoutManager(mLayoutManager);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 recyclerView.setAdapter(mAdapter);
+
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        final EditText filter = (EditText) findViewById(R.id.filter);
         filter.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -108,10 +131,10 @@ public class ListDedupActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
                 String text = filter.getText().toString();
                 mAdapter.filter(text);
+                num.setText(String.valueOf(resultList.size()));
             }
         });
 
-        Button btnCancel = (Button) findViewById(R.id.btn_cancel);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,5 +143,10 @@ public class ListDedupActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 }

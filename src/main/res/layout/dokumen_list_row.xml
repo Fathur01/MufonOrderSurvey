@@ -51,49 +51,66 @@
         <LinearLayout
             android:id="@+id/layout3"
             android:layout_below="@+id/layout2"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <TextView
-                android:textColor="@color/gray"
-                android:layout_alignParentTop="true"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Status" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout4"
-            android:layout_below="@+id/layout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="20dp">
-
-            <RadioGroup
-                android:id="@+id/radio_group_dokumen"
-                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <RadioButton android:id="@+id/radio_p"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:textColor="@color/gray"
+                    android:layout_alignParentTop="true"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:theme="@style/RadioButtonStyle"
-                    android:layout_marginRight="20dp"
-                    android:text="Pending" />
+                    android:layout_weight="1"
+                    android:text="Status" />
+            </LinearLayout>
 
-                <RadioButton android:id="@+id/radio_r"
-                    android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/layout4"
+                android:layout_below="@+id/layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="20dp">
+
+                <!--<RadioGroup
+                    android:id="@+id/radio_group_dokumen"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:theme="@style/RadioButtonStyle"
-                    android:text="Received" />
+                    android:orientation="horizontal">
 
-            </RadioGroup>
+                    <RadioButton android:id="@+id/radio_p"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:theme="@style/RadioButtonStyle"
+                        android:layout_marginRight="20dp"
+                        android:text="Pending" />
+
+                    <RadioButton android:id="@+id/radio_r"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:theme="@style/RadioButtonStyle"
+                        android:text="Received" />
+
+                </RadioGroup>-->
+
+                <TextView
+                    android:id="@+id/txt_status_dokumen"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="STATUS DOKUMEN" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -102,7 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@id/layout4">
+            android:layout_below="@id/layout3">
 
             <TextView
                 android:textColor="@color/gray"
@@ -183,14 +200,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="KODE DOKUMEN" />
-
-            <Button
-                android:id="@+id/btn_save_dokumen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/bpTransparent"
-                android:drawableRight="@drawable/ic_save"
-                android:drawableEnd="@drawable/ic_save"/>
 
         </LinearLayout>
 

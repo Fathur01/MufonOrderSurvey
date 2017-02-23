@@ -135,9 +135,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
-                android:focusable="false"
-                android:drawableRight="@drawable/ic_arrow"
-                android:drawableEnd="@drawable/ic_arrow"
                 android:inputType="numberDecimal"
                 android:hint="Tagihan Listrik Bulanan(Rp)" />
 
@@ -154,9 +151,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
-                android:focusable="false"
-                android:drawableRight="@drawable/ic_arrow"
-                android:drawableEnd="@drawable/ic_arrow"
                 android:inputType="number"
                 android:hint="Lama Tinggal(Bulan)" />
 

@@ -33,9 +33,36 @@
 
             </android.support.design.widget.TextInputLayout>
 
+            <LinearLayout
+                android:id="@+id/layout4"
+                android:layout_below="@+id/jenis_supplier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/input_outlet_supplier_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="Outlet Supplier"
+                        android:drawableRight="@drawable/ic_magni"
+                        android:drawableEnd="@drawable/ic_magni"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/paket_rekening"
-                android:layout_below="@+id/jenis_supplier"
+                android:layout_below="@+id/layout4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -80,34 +107,11 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/layout4"
-                android:layout_below="@+id/layout3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:layout_marginBottom="8dp">
-
-                    <EditText
-                        android:id="@+id/input_outlet_supplier_code"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:hint="Outlet Supplier" />
-
-                </android.support.design.widget.TextInputLayout>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout5"
-                android:layout_below="@+id/layout4"
+                android:layout_below="@+id/layout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">

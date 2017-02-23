@@ -68,7 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
-                    android:hint="Marketing Scheme"
+                    android:hint="Tipe Pembayaran Angsuran"
                     android:drawableRight="@drawable/ic_arrow"
                     android:drawableEnd="@drawable/ic_arrow"/>
 
@@ -163,7 +163,7 @@
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="2dp"
                     android:layout_weight="1"
                     android:layout_marginBottom="8dp">
 

@@ -23,26 +23,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/outlet"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp">
-
-                    <EditText
-                        android:id="@+id/input_outlet"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:focusable="false"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:hint="Outlet" />
-
-                </android.support.design.widget.TextInputLayout>
 
                 <LinearLayout
                     android:id="@+id/layout1"
-                    android:layout_below="@+id/outlet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -69,9 +52,75 @@
 
                 </LinearLayout>
 
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/outlet"
+                    android:layout_below="@+id/layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/input_outlet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="Outlet" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_calender"
+                    android:layout_below="@+id/outlet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/janji_survey"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/input_janji_survey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="Janji Survey"
+                        android:drawableRight="@drawable/ic_calendar"
+                        android:drawableEnd="@drawable/ic_calendar" />
+
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/input_tgl_pemesanan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="Tanggal Pemesanan"
+                        android:drawableRight="@drawable/ic_calendar"
+                        android:drawableEnd="@drawable/ic_calendar" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/layout2"
-                    android:layout_below="@+id/layout1"
+                    android:layout_below="@+id/layout_calender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="5dp"
@@ -108,29 +157,10 @@
 
                 </LinearLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tgl_pemesanan"
-                    android:layout_below="@+id/layout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp">
-
-                    <EditText
-                        android:id="@+id/input_tgl_pemesanan"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:focusable="false"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:hint="Tanggal Pemesanan"
-                        android:drawableRight="@drawable/ic_calendar"
-                        android:drawableEnd="@drawable/ic_calendar" />
-
-                </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tipe_order"
-                    android:layout_below="@+id/tgl_pemesanan"
+                    android:layout_below="@+id/layout2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -150,7 +180,7 @@
 
                 <LinearLayout
                     android:id="@+id/layout3"
-                    android:layout_below="@+id/tipe_order"
+                    android:layout_below="@+id/skema_pembiayaan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="5dp"
@@ -187,29 +217,54 @@
 
                 </LinearLayout>
 
-                <android.support.design.widget.TextInputLayout
+
+
+
+                <LinearLayout
                     android:id="@+id/skema_pembiayaan"
-                    android:layout_below="@+id/layout3"
+                    android:layout_below="@+id/tipe_order"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp">
+                    android:paddingLeft="5dp"
+                    android:paddingTop="15dp"
+                    android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/input_skema_pembiayaan"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:focusable="false"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:hint="Skema Pembiayaan *"
-                        android:drawableRight="@drawable/ic_arrow"
-                        android:drawableEnd="@drawable/ic_arrow" />
+                        android:text="Skema Pembiayaan" />
 
-                </android.support.design.widget.TextInputLayout>
+                    <RadioGroup
+                        android:id="@+id/radio_group_skema"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton android:id="@+id/radio_PPSA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:theme="@style/RadioButtonStyle"
+                            android:layout_marginRight="20dp"
+                            android:text="PPSA" />
+
+                        <RadioButton android:id="@+id/radio_sales"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:theme="@style/RadioButtonStyle"
+                            android:text="Sales and Lease Bank" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+
+
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tujuan_pembiayaan"
-                    android:layout_below="@+id/skema_pembiayaan"
+                    android:layout_below="@+id/layout3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -268,8 +323,8 @@
                             android:layout_height="wrap_content"
                             android:focusable="false"
                             android:hint="Outlet Channel"
-                            android:drawableRight="@drawable/ic_arrow"
-                            android:drawableEnd="@drawable/ic_arrow" />
+                            android:drawableRight="@drawable/ic_magni"
+                            android:drawableEnd="@drawable/ic_magni" />
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -336,28 +391,8 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
-                    android:id="@+id/janji_survey"
-                    android:layout_below="@+id/hub_bank"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp">
-
-                    <EditText
-                        android:id="@+id/input_janji_survey"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:focusable="false"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:hint="Janji Survey"
-                        android:drawableRight="@drawable/ic_calendar"
-                        android:drawableEnd="@drawable/ic_calendar" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
                     android:id="@+id/cara_bayar"
-                    android:layout_below="@+id/janji_survey"
+                    android:layout_below="@+id/hub_bank"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -376,8 +411,34 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <LinearLayout
+                    android:id="@+id/rekening_nasabah_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@+id/cara_bayar">
+                <TextView
+                    android:id="@+id/rekening_nasabah_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="30dp"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:text="Rekening Nasabah" />
+                <View
+                    android:id="@+id/line_rekening_nasabah"
+                    android:layout_width="150dp"
+                    android:layout_height="1.5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorAccent"/>
+                </LinearLayout>
+
+
+                <LinearLayout
                     android:id="@+id/layout5"
-                    android:layout_below="@+id/cara_bayar"
+                    android:layout_below="@+id/rekening_nasabah_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -419,14 +480,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Account Number" />
+                        android:text="Nomor Rekening" />
 
                     <TextView
-                        android:id="@+id/acc_num"
+                        android:id="@+id/nomor_rekening"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:layout_width="match_parent"
-                        android:text="ACCOUNT NUMBER"
+                        android:text="Nomor Rekening"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:gravity="end"/>
@@ -448,14 +509,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Account Name" />
+                        android:text="Nama Rekening" />
 
                     <TextView
-                        android:id="@+id/acc_name"
+                        android:id="@+id/nama_rekening"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:layout_width="match_parent"
-                        android:text="ACCOUNT NAME"
+                        android:text="Nama Rekening"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:gravity="end"/>

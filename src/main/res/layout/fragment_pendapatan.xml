@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:textColor="@color/colorPrimaryDark"
-                    android:hint="Perbandingan Hutang (DSR)" />
+                    android:hint="Perbandingan Hutang (DSR)%" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -138,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:textColor="@color/colorPrimaryDark"
-                    android:hint="Perbandingan Pendapatan" />
+                    android:hint="Perbandingan Pendapatan (DIR)%" />
 
             </android.support.design.widget.TextInputLayout>
 

@@ -108,22 +108,20 @@
                     <TextView
                         android:id="@+id/struktur_kredit_biaya_total_asuransi"
                         android:textColor="@color/gray"
-                        android:textSize="12dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="16dp"
                         android:layout_weight="1"
                         android:text="Biaya Total Asuransi" />
 
 
                     <TextView
                         android:id="@+id/txt_struktur_kredit_biaya_total_asuransi"
-                        android:textColor="@color/gray"
-                        android:textSize="12dp"
-                        android:layout_width="150dp"
-                        android:layout_marginRight="12dp"
-                        android:text="-"
-                        android:inputType="numberDecimal"
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:text="Biaya Total Asuransi"
+                        android:textSize="16dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:gravity="end"/>
 

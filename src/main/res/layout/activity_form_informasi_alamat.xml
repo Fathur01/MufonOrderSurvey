@@ -273,24 +273,24 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/no_fax"
+                android:id="@+id/email"
                 android:layout_below="@+id/no_telp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp">
 
                 <EditText
-                    android:id="@+id/input_no_fax"
+                    android:id="@+id/input_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
-                    android:hint="No.Fax" />
+                    android:hint="Email" />
 
             </android.support.design.widget.TextInputLayout>
 
             <CheckBox
                 android:id="@+id/checkbox_alamat_tagih"
-                android:layout_below="@+id/no_fax"
+                android:layout_below="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alamat Tagih" />

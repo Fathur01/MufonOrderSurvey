@@ -24,23 +24,15 @@
         android:layout_below="@+id/toolbar"
         android:background="@drawable/frame_alt_2">
 
-        <android.support.design.widget.TextInputLayout
+        <EditText android:id="@+id/filter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:inputType="text"
+            android:hint="Search"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-
-            <EditText android:id="@+id/filter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="Search"
-                android:drawableRight="@drawable/ic_magni"
-                android:drawableEnd="@drawable/ic_magni" />
-
-        </android.support.design.widget.TextInputLayout>
+            android:layout_marginRight="10dp"
+            android:drawableRight="@drawable/ic_magni"
+            android:drawableEnd="@drawable/ic_magni" />
 
     </RelativeLayout>
 

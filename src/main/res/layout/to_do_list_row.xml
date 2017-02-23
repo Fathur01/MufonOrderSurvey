@@ -11,7 +11,9 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:background="@drawable/frame" >
 
         <LinearLayout
@@ -100,13 +102,10 @@
                 android:text="NAMA CUSTOMER" />
         </LinearLayout>
 
-
-
         <View
             android:id="@+id/line"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:layout_marginBottom="10dp"
             android:background="@color/gray"
             android:layout_below="@+id/layout4"/>
 
@@ -115,8 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@id/line"
-            android:paddingTop="10dp">
+            android:layout_below="@id/line">
 
             <TextView
                 android:textColor="@color/gray"

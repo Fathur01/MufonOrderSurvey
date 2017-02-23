@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.muf.mymuf.mobilesurvey.fragment.customer.IdentitasFragment">
 
@@ -59,9 +58,61 @@
 
                 </android.support.design.widget.TextInputLayout>
 
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/nama_lengkap"
+                    android:layout_below="@+id/no_identitas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/input_nama_lengkap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="Nama Lengkap" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/nama_lengkap_sid"
+                    android:layout_below="@+id/nama_lengkap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/input_nama_lengkap_sid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="Nama Lengkap SID" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/alias"
+                    android:layout_below="@+id/nama_lengkap_sid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/input_alias"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="Alias" />
+
+                </android.support.design.widget.TextInputLayout>
+
                 <LinearLayout
                     android:id="@+id/layout1"
-                    android:layout_below="@+id/no_identitas"
+                    android:layout_below="@+id/alias"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -139,9 +190,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorPrimaryDark"
-                        android:hint="Nama Pasangan"
-                        android:drawableRight="@drawable/ic_arrow"
-                        android:drawableEnd="@drawable/ic_arrow" />
+                        android:hint="Nama Pasangan" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -158,66 +207,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorPrimaryDark"
-                        android:hint="Jumlah Tanggungan"
-                        android:drawableRight="@drawable/ic_arrow"
-                        android:drawableEnd="@drawable/ic_arrow" />
+                        android:hint="Jumlah Tanggungan" />
 
                 </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/nama_lengkap"
-                    android:layout_below="@+id/jumlah_tanggungan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp">
-
-                    <EditText
-                        android:id="@+id/input_nama_lengkap"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:hint="Nama Lengkap" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/nama_lengkap_sid"
-                    android:layout_below="@+id/nama_lengkap"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp">
-
-                    <EditText
-                        android:id="@+id/input_nama_lengkap_sid"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:hint="Nama Lengkap SID" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/alias"
-                    android:layout_below="@+id/nama_lengkap_sid"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp">
-
-                    <EditText
-                        android:id="@+id/input_alias"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:hint="Alias" />
-
-                </android.support.design.widget.TextInputLayout>
 
                 <LinearLayout
                     android:id="@+id/layout2"
-                    android:layout_below="@+id/alias"
+                    android:layout_below="@+id/jumlah_tanggungan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -241,9 +238,8 @@
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1"
-                        android:layout_marginBottom="8dp">
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1">
 
                         <EditText
                             android:id="@+id/input_tgl_lahir"
@@ -251,7 +247,9 @@
                             android:layout_height="wrap_content"
                             android:focusable="false"
                             android:textColor="@color/colorPrimaryDark"
-                            android:hint="Tanggal Lahir" />
+                            android:hint="Tanggal Lahir"
+                            android:drawableRight="@drawable/ic_calendar"
+                            android:drawableEnd="@drawable/ic_calendar"/>
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -268,7 +266,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Calculated By " />
+                        android:text="Jenis Kelamin " />
 
                     <RadioGroup
                         android:id="@+id/radio_group"
@@ -328,13 +326,48 @@
 
                 </android.support.design.widget.TextInputLayout>
 
-                <LinearLayout
-                    android:id="@+id/tambah_no_hp"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/nama_no_hp_2"
+                    android:layout_below="@+id/nama_no_hp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/nama_no_hp"
-                    android:gravity="right"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/input_nama_no_hp_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="No. Handphone 2" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/nama_no_hp_3"
+                    android:layout_below="@+id/nama_no_hp_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/input_nama_no_hp_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="No. Handphone 3" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/tambah_no_hp"
+                    android:layout_below="@+id/nama_no_hp_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="end">
 
                     <TextView
                         android:id="@+id/input_tambah_no_hp"
@@ -342,6 +375,14 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="Tambah No. Handphone" />
+
+                    <TextView
+                        android:id="@+id/input_hapus_no_hp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="Hapus No. Handphone"
+                        android:visibility="gone"/>
 
                 </LinearLayout>
 
@@ -360,19 +401,24 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/container_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btn_add_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/button_no_rad_alt"
+                    android:text="TAMBAH ALAMAT" />
+
+            </RelativeLayout>
+
         </LinearLayout>
 
     </ScrollView>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="@color/colorPrimaryDark"
-        android:src="@mipmap/ic_launcher" />
 
 </RelativeLayout>
